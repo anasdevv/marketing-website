@@ -38,7 +38,7 @@ const ThreeColRow = tw.div`flex flex-col md:flex-row items-center justify-betwee
 
 const LogoContainer = tw.div`flex items-center justify-center md:justify-start`;
 const LogoImg = tw.img`w-8`;
-const LogoText = tw.h5`ml-2 text-xl font-black tracking-wider text-gray-800`;
+const LogoText = tw.h5`ml-2 text-xl font-bold tracking-wider text-gray-800`;
 
 const CopywrightNotice = tw.p`text-center text-sm sm:text-base mt-8 md:mt-0 font-medium text-gray-500`;
 
@@ -49,11 +49,47 @@ const SocialLink = styled.a`
     ${tw`w-4 h-4`}
   }
 `;
-
+const Row = tw.div`flex items-center justify-center mx-auto space-x-3`;
+const Col = tw.div`mx-auto flex items-center justify-center flex-col`;
+const Span = tw.span`mt-2 lg:mt-6 text-sm font-medium `;
 export default () => {
   return (
     <Container>
       <Content>
+        <Row>
+          <Col>
+            <LogoText>Contact </LogoText>
+            <Row>
+              <SubscribeText>email </SubscribeText>
+              <Span>luxuriousdetailer@gmail.com</Span>
+            </Row>
+            <Row>
+              <SubscribeText>phone </SubscribeText>
+              <Span>+92312312122</Span>
+            </Row>
+          </Col>
+          <Col>
+            <SubscribeNewsletterColumn>
+              <SubscribeNewsletterContainer>
+                <ColumnHeading>
+                  Have questions or ready to schedule your next detailing
+                  appointment?
+                </ColumnHeading>
+                <SubscribeText>
+                  Our dedicated team is here to assist you. Our detailing
+                  experts will promptly respond to address your inquiries,
+                  provide personalized quotes, or help you book your service. We
+                  look forward to hearing from you and enhancing the beauty of
+                  your vehicle!{' '}
+                </SubscribeText>
+                <SubscribeForm method='get' action='#'>
+                  <Input type='email' placeholder='Your Email Address' />
+                  <SubscribeButton type='submit'>Submit</SubscribeButton>
+                </SubscribeForm>
+              </SubscribeNewsletterContainer>
+            </SubscribeNewsletterColumn>
+          </Col>
+        </Row>
         {/* <SixColumns>
           <Column>
             <ColumnHeading>Main</ColumnHeading>
