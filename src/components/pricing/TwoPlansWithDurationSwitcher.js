@@ -1,30 +1,35 @@
-import React, {useState} from "react";
-import tw from "twin.macro";
-import styled from "styled-components";
-import { css } from "styled-components/macro"; //eslint-disable-line
-import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { SectionDescription } from "components/misc/Typography.js";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
-import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-6.svg";
-import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-7.svg";
+import React, { useState } from 'react';
+import tw from 'twin.macro';
+import styled from 'styled-components';
+import { css } from 'styled-components/macro'; //eslint-disable-line
+import {
+  SectionHeading,
+  Subheading as SubheadingBase,
+} from 'components/misc/Headings.js';
+import { SectionDescription } from 'components/misc/Typography.js';
+import { PrimaryButton as PrimaryButtonBase } from 'components/misc/Buttons.js';
+import { Container, ContentWithPaddingXl } from 'components/misc/Layouts.js';
+import { ReactComponent as SvgDecoratorBlob1 } from 'images/svg-decorator-blob-6.svg';
+import { ReactComponent as SvgDecoratorBlob2 } from 'images/svg-decorator-blob-7.svg';
 
 const HeaderContainer = tw.div`w-full flex flex-col items-center`;
 const Subheading = tw(SubheadingBase)`mb-4`;
 const Heading = tw(SectionHeading)`w-full`;
+const SHeading = tw(SectionHeading)`w-full text-2xl`;
+
 const Description = tw(SectionDescription)`w-full text-center`;
 
 const PlanDurationSwitcher = tw.div`block w-full max-w-xs sm:inline-block sm:w-auto border-2 rounded-full px-1 py-1 mt-8`;
 const SwitchButton = styled.button`
   ${tw`w-1/2 sm:w-32 px-4 sm:px-8 py-3 rounded-full focus:outline-none text-sm font-bold text-gray-700 transition duration-300`}
-  ${props => props.active && tw`bg-primary-500 text-gray-100`}
+  ${(props) => props.active && tw`bg-primary-500 text-gray-100`}
 `;
 
 const PlansContainer = tw.div`flex justify-center flex-col md:flex-row items-center md:items-start relative`;
 const Plan = styled.div`
   ${tw`w-full max-w-72 mt-16 md:mr-12 md:last:mr-0 text-center px-8 rounded-lg relative text-gray-900 bg-white flex flex-col shadow-raised`}
 
-  ${props =>
+  ${(props) =>
     props.featured &&
     css`
       ${tw`border-2 border-gray-200 shadow-none`}
@@ -69,36 +74,75 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 `;
 
 export default ({
-  subheading = "Pricing",
-  heading = "Flexible Plans.",
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  subheading = 'Pricing',
+  heading = 'Flexible Plans.',
+  description = 'Discover Driving Elegance: Explore Our Tailored Plans for Truck, Sedan, and SUV Interior & Exterior Detailing – Where Precision Meets Passion!',
   plans = null,
-  primaryButtonText = "Buy Now",
+  primaryButtonText = 'Buy Now',
   planDurations = [
     {
-      text: "Month",
-      switcherText: "Monthly",
+      text: 'Ext-Int',
+      switcherText: 'Ext - Int',
     },
     {
-      text: "Year",
-      switcherText: "Yearly",
-    }
-  ]
+      text: 'Int',
+      switcherText: 'Int',
+    },
+  ],
 }) => {
   const defaultPlans = [
     {
-      name: "Free Plan",
-      durationPrices: ["$0", "$0"],
-      mainFeature: "For Personal Blogs",
-      features: ["30 Templates", "7 Landing Pages", "12 Internal Pages", "Basic Assistance"]
+      name: 'Sedan',
+      durationPrices: ['$200', '$180'],
+      mainFeature: 'Ideal for Personal Bliss',
+      externalFeatures: [
+        'Exterior Foam Soap Hand Wash',
+        'Window Cleaning, Inside and Out',
+        'Leather Conditioning for a Luxe Feel',
+      ],
+      internalFeatures: [
+        'Thorough Interior Vacuuming',
+        'Seat and Carpet Shampooing',
+        'Interior Plastics Dressing',
+        'Air Freshener for a Revitalized Cabin',
+      ],
     },
     {
-      name: "Pro Plan",
-      durationPrices: ["$49", "$499"],
-      mainFeature: "Suited for Production Websites",
-      features: ["60 Templates", "8 Landing Pages", "22 Internal Pages", "Priority Assistance", "Lifetime Updates"],
-      featured: true
-    }
+      name: 'SUV',
+      durationPrices: ['$220', '$190'],
+      mainFeature: 'Suited for Premium Performance',
+      externalFeatures: [
+        'Advanced Exterior Waxing for Maximum Shine',
+        'Tire Degreasing and Dressing for a Sleek Look',
+        'Headlight Restoration for Enhanced Visibility',
+        'Scratch and Swirl Removal for a Flawless Finish',
+      ],
+      internalFeatures: [
+        'Deep Cleaning and Conditioning of Leather Seats',
+        'Intensive Pet Hair Removal for a Spotless Interior',
+        'Engine Bay Cleaning for Optimal Performance',
+        'Air Freshener for a Revitalized Cabin',
+      ],
+      featured: true,
+    },
+    {
+      name: 'Truck',
+      durationPrices: ['$240', '$200'],
+      mainFeature: 'Crafted for Rugged Excellence',
+      externalFeatures: [
+        'Heavy-Duty Exterior Degreasing for Tough Cleaning',
+        'Wheel Arch and Mud Flap Detailing',
+        'Paint Sealant Application for Long-Lasting Protection',
+        'Oversized Tire and Rim Cleaning for a Bold Presence',
+      ],
+      internalFeatures: [
+        'Bedliner Protection and Thorough Cleaning',
+        'Interior Upholstery Protection for Durability',
+        'Tailgate and Door Jamb Cleaning for a Polished Look',
+        'Air Freshener for a Revitalized Cabin',
+      ],
+      featured: true,
+    },
   ];
 
   if (!plans) plans = defaultPlans;
@@ -109,37 +153,49 @@ export default ({
     <Container>
       <ContentWithPaddingXl>
         <HeaderContainer>
-          {subheading && <Subheading>{subheading}</Subheading>}
           <Heading>{heading}</Heading>
           {description && <Description>{description}</Description>}
-        <PlanDurationSwitcher>
-          {planDurations.map((planDuration, index) => (
-            <SwitchButton active={activeDurationIndex === index} key={index} onClick={() => setActiveDurationIndex(index)}>{planDuration.switcherText}</SwitchButton>
-          ))}
-        </PlanDurationSwitcher>
+          <PlanDurationSwitcher>
+            {planDurations.map((planDuration, index) => (
+              <SwitchButton
+                active={activeDurationIndex === index}
+                key={index}
+                onClick={() => setActiveDurationIndex(index)}
+              >
+                {planDuration.switcherText}
+              </SwitchButton>
+            ))}
+          </PlanDurationSwitcher>
         </HeaderContainer>
+        <SHeading>
+          {activeDurationIndex === 0 ? 'Exterior - Interior' : 'Interior'}
+        </SHeading>
         <PlansContainer>
           {plans.map((plan, index) => (
             <Plan key={index} featured={plan.featured}>
               <PlanHeader>
-                <span className="priceAndDuration">
-                  <span className="price">{plan.durationPrices[activeDurationIndex]}</span>
-                  <span className="slash"> / </span>
-                  <span className="duration">{planDurations[activeDurationIndex].text}</span>
+                <span className='priceAndDuration'>
+                  <span className='price'>
+                    {plan.durationPrices[activeDurationIndex]}
+                  </span>
+                  <span className='slash'> / </span>
+                  <span className='duration'>
+                    {planDurations[activeDurationIndex].text}
+                  </span>
                 </span>
-                <span className="name">{plan.name}</span>
-                <span className="mainFeature">{plan.mainFeature}</span>
+                <span className='name'>{plan.name}</span>
+                <span className='mainFeature'>{plan.mainFeature}</span>
               </PlanHeader>
               <PlanFeatures>
-                {plan.features.map((feature, index) => (
-                  <span key={index} className="feature">
+                {(activeDurationIndex === 0
+                  ? [...plan.externalFeatures, ...plan.internalFeatures]
+                  : [...plan.internalFeatures]
+                ).map((feature, index) => (
+                  <span key={index} className='feature'>
                     {feature}
                   </span>
                 ))}
               </PlanFeatures>
-              <PlanAction>
-                <BuyNowButton>{primaryButtonText}</BuyNowButton>
-              </PlanAction>
             </Plan>
           ))}
         </PlansContainer>

@@ -6,6 +6,7 @@ import AnimationRevealPage from 'helpers/AnimationRevealPage.js';
 import Hero from 'components/hero/TwoColumnWithFeaturesAndTestimonial.js';
 import Features from 'components/features/ThreeColWithSideImage.js';
 import MainFeature from 'components/features/TwoColWithTwoHorizontalFeaturesAndButton.js';
+import Services from 'components/features/ThreeColServices';
 import FeatureStats from 'components/features/ThreeColCenteredStatsPrimaryBackground.js';
 import Pricing from 'components/pricing/TwoPlansWithDurationSwitcher.js';
 import Blog from 'components/blogs/GridWithFeaturedPost.js';
@@ -13,6 +14,7 @@ import Testimonial from 'components/testimonials/TwoColumnWithImageAndRating.js'
 import FAQ from 'components/faqs/SingleCol.js';
 import GetStarted from 'components/cta/GetStartedLight.js';
 import Footer from 'components/footers/FiveColumnWithInputForm.js';
+import MainServices from 'components/features/MainServices';
 
 const HighlightedText = tw.span`text-blue-600`;
 
@@ -20,7 +22,15 @@ export default () => {
   return (
     <AnimationRevealPage>
       <Hero />
+      <MainServices />
       <FeatureStats />
+      <Services
+        heading={
+          <>
+            Additional <HighlightedText>Services</HighlightedText>
+          </>
+        }
+      />
       <Features
         heading={
           <>
@@ -28,14 +38,7 @@ export default () => {
           </>
         }
       />
-      <MainFeature
-        heading={
-          <>
-            Cloud built by and for{' '}
-            <HighlightedText>Professionals</HighlightedText>
-          </>
-        }
-      />
+      <MainFeature />
       <Testimonial
         heading={
           <>
@@ -57,7 +60,6 @@ export default () => {
           </>
         }
       />
-      <GetStarted />
       <Footer />
     </AnimationRevealPage>
   );

@@ -7,6 +7,10 @@ import HeaderBase, {
   NavLink,
   PrimaryLink,
 } from 'components/headers/light.js';
+import {
+  Container as ContainerBase,
+  ContentWithPaddingXl,
+} from 'components/misc/Layouts';
 import { SectionHeading } from 'components/misc/Headings.js';
 import { SectionDescription } from 'components/misc/Typography.js';
 import { PrimaryButton as PrimaryButtonBase } from 'components/misc/Buttons.js';
@@ -18,6 +22,9 @@ import { ReactComponent as CheckboxIcon } from 'feather-icons/dist/icons/check-c
 import { ReactComponent as QuotesLeftIconBase } from 'images/quotes-l.svg';
 import { ReactComponent as SvgDecoratorBlob1 } from 'images/dot-pattern.svg';
 import Img from '../../images/car-wash.jpg';
+const Container2 = tw(
+  ContainerBase
+)` lg:py-4 py-2 bg-gray-100 text-gray-100 -mx-8 px-8 lg:px-12`;
 const Header = tw(HeaderBase)`max-w-none`;
 const Row = tw.div`flex flex-col lg:flex-row justify-between items-center lg:pt-16 max-w-screen-2xl mx-auto sm:px-8`;
 const Column = tw.div``;
@@ -27,6 +34,9 @@ const TextColumn = tw(
 const Heading = tw(
   SectionHeading
 )`text-left text-primary-900 leading-snug xl:text-6xl`;
+const SHeading = tw(
+  SectionHeading
+)`text-left text-primary-900 leading-snug xl:text-4xl`;
 const Description = tw(
   SectionDescription
 )`mt-4 lg:text-base text-gray-700 max-w-lg`;
@@ -56,13 +66,13 @@ const CustomerCompany = tw.p`mt-1 text-sm text-gray-500`;
 
 export default ({
   heading = 'Better, Faster and Cheaper.',
-  description = 'At SparkShine, we go beyond ordinary car detailing to redefine your driving experience. Our passion for perfection and commitment to excellence set us apart, ensuring your vehicle not only looks immaculate but also feels rejuvenated on the road.',
+  description = 'At LuxuriousDetailers, we go beyond ordinary car detailing to redefine your driving experience. Our passion for perfection and commitment to excellence set us apart, ensuring your vehicle not only looks immaculate but also feels rejuvenated on the road.',
   imageDecoratorBlob = true,
   buttonRounded = true,
   features = [
-    'Available in 7 Locations',
-    'Premium Internet Backbone',
-    '99.99% Uptime SLA',
+    'Serving over 20 cities all over the nation including Orlando FL',
+    '  INTERIOR - vacuum seats, carpets, trunk and floor mats, full wipe down all surfaces, dress all plastics, apply leather conditioner, clean interior windows, and air freshener.',
+    'EXTERIOR - Foam soap hand wash, pressure washer rinse, clean degrease and dress wheels, tires and rims, clean all door jabs and trunk sealants, microfiber cloth dry.    ',
   ],
   testimonial = {
     quote:
@@ -75,12 +85,12 @@ export default ({
   const navLinks = [
     <NavLinks key={1}>
       <NavLink href='/#'>About</NavLink>
-      <NavLink href='/#'>Blog</NavLink>
       <NavLink href='/#'>Pricing</NavLink>
       <NavLink href='/#'>Contact Us</NavLink>
       <NavLink href='/#'>Testimonials</NavLink>
     </NavLinks>,
   ];
+
   return (
     <>
       <Header links={navLinks} />
@@ -88,30 +98,24 @@ export default ({
         <ContentWithVerticalPadding>
           <Row>
             <TextColumn>
-              <Heading>{'Introducing SparkShine - Elevate Your Ride'}</Heading>
+              <Heading>
+                {'Introducing LuxuriousDetailers - Elevate Your Ride'}
+              </Heading>
               <Subheading>{heading}</Subheading>
               <Description>{description}</Description>
-              <FeatureList>
-                {features.map((feature, index) => (
-                  <Feature key={index}>
-                    <FeatureIcon />
-                    <FeatureText>{feature}</FeatureText>
-                  </Feature>
-                ))}
-              </FeatureList>
             </TextColumn>
             <ImageColumn>
               <ImageContainer>
                 <Image src={Img} />
                 {imageDecoratorBlob && <ImageDecoratorBlob />}
-                <Testimonial>
+                {/* <Testimonial>
                   <QuotesLeftIcon />
                   <Quote>{testimonial.quote}</Quote>
                   <CustomerName>{testimonial.customerName}</CustomerName>
                   <CustomerCompany>
                     {testimonial.customerCompany}
                   </CustomerCompany>
-                </Testimonial>
+                </Testimonial> */}
               </ImageContainer>
               <Offsetbackground />
             </ImageColumn>

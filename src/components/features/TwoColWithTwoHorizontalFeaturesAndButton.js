@@ -98,7 +98,7 @@ export default ({
       Icon: BriefcaseIcon,
       title: 'Professionalism',
       description:
-        'We have the best professional marketing people across the globe just to work with you.',
+        'Transform Your Ride, Unleash the Shine: Experience Interior Luxury and Exterior Radiance Crafted by Our Skilled Professionals for a Drive Beyond Ordinary.',
       iconContainerCss: tw`bg-teal-300 text-teal-800`,
     },
     {

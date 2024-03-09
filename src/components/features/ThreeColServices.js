@@ -8,10 +8,16 @@ import {
   Subheading as SubheadingBase,
 } from 'components/misc/Headings.js';
 import { SectionDescription } from 'components/misc/Typography.js';
+import { GiWaxSeal } from 'react-icons/gi';
+
+import { GiSandstorm } from 'react-icons/gi';
+import { GiIceCreamScoop } from 'react-icons/gi';
 
 import defaultCardImage from 'images/shield-icon.svg';
+import { MdOutlineCleanHands, MdOutlinePets } from 'react-icons/md';
 
 import { ReactComponent as SvgDecoratorBlob3 } from 'images/svg-decorator-blob-3.svg';
+import { PiEngine } from 'react-icons/pi';
 
 import SupportIconImage from 'images/support-icon.svg';
 import ShieldIconImage from 'images/shield-icon.svg';
@@ -30,7 +36,7 @@ const Heading = tw(SectionHeading)`w-full`;
 const Description = tw(SectionDescription)`w-full text-center`;
 
 const VerticalSpacer = tw.div`mt-10 w-full`;
-
+const Svg = tw.div`text-icons text-xl`;
 const Column = styled.div`
   ${tw`md:w-1/2 lg:w-1/3 max-w-sm`}
 `;
@@ -61,12 +67,7 @@ const DecoratorBlob = styled(SvgDecoratorBlob3)`
   ${tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}
 `;
 
-export default ({
-  cards = null,
-  heading = 'Amazing Features',
-  subheading = 'Features',
-  description = 'Unleash the LuxuriousDetailers Experience',
-}) => {
+export default ({ cards = null, heading = 'Amazing Features' }) => {
   /*
    * This componets has an array of object denoting the cards defined below. Each object in the cards array can have the key (Change it according to your need, you can also add more objects to have more cards in this feature component) or you can directly pass this using the cards prop:
    *  1) imageSrc - the image shown at the top of the card
@@ -75,58 +76,61 @@ export default ({
    *  If a key for a particular card is not provided, a default value is used
    */
 
-  const defaultCards = [
+  const defaultServices = [
     {
-      imageSrc: ShieldIconImage,
-      title: 'Secure',
+      svg: <MdOutlineCleanHands className='text-icon' text-2xl />,
+      title: 'Shampoo',
       description:
-        'We strictly only deal with vendors that provide top notch security.',
+        'Revitalize your seats and carpets with our rejuvenating shampoo. $50 for shampooing seats OR carpets.',
+      price: 50,
     },
     {
-      imageSrc: SupportIconImage,
-      title: '24/7 Support',
+      svg: <MdOutlinePets className='text-icon text-2xl' />,
+      title: 'Pet Hair',
       description:
-        'Our dedicated support team is ready to assist you round the clock.',
+        'Say goodbye to pet hair nightmares. Our experts will remove it for $30-$40.',
+      price: 30, // You can set a base price or a price range.
     },
     {
-      imageSrc: CustomizeIconImage,
-      title: 'Customizable',
+      svg: <GiWaxSeal className='text-icon text-2xl' />,
+      title: 'Wax',
       description:
-        'Tailor your detailing package to meet your unique needs and preferences.',
+        'Give your car the glossy finish it deserves with our premium waxing service. $40 for a dazzling shine.',
+      price: 40,
     },
     {
-      imageSrc: ReliableIconImage,
-      title: 'Reliable',
-      description:
-        'Count on SparkShine for consistent and dependable car detailing services.',
+      svg: <PiEngine className='text-icon text-2xl' />,
+      title: 'Engine',
+      description: `Treat your car's heart to a spa day. Engine bay cleaning for a smooth running vehicle.`,
+      price: 40,
     },
     {
-      imageSrc: FastIconImage,
-      title: 'Fast',
+      svg: <GiSandstorm className='text-icon text-2xl' />,
+      title: 'Severe Dirtiness',
       description:
         'Experience swift and efficient detailing services to get you back on the road.',
+      price: 30,
     },
     {
-      imageSrc: SimpleIconImage,
-      title: 'Easy',
-      description:
-        'Seamless booking and hassle-free detailing experiences at your fingertips.',
+      svg: <GiIceCreamScoop className='text-icon text-2xl' />,
+      title: 'Ceramic Coating',
+      description: `Enhance your car's protection with our Ceramic Coating. Ask about our special packages.`,
+      price: null, // You can leave it as null if the price varies based on the package.
     },
   ];
 
-  if (!cards) cards = defaultCards;
+  if (!cards) cards = defaultServices;
 
   return (
     <Container>
       <ThreeColumnContainer>
         <Heading>{heading}</Heading>
-        {description && <Description>{description}</Description>}
         <VerticalSpacer />
         {cards.map((card, i) => (
           <Column key={i}>
             <Card>
               <span className='imageContainer'>
-                <img src={card.imageSrc || defaultCardImage} alt='' />
+                <Svg>{card.svg}</Svg>
               </span>
               <span className='textContainer'>
                 <span className='title'>{card.title || 'Fully Secure'}</span>

@@ -9,7 +9,7 @@ import { ReactComponent as FacebookIcon } from 'images/facebook-icon.svg';
 import { ReactComponent as TwitterIcon } from 'images/twitter-icon.svg';
 import { ReactComponent as YoutubeIcon } from 'images/youtube-icon.svg';
 
-const Container = tw.div`relative bg-gray-200 text-gray-700 -mb-8 -mx-8 px-8 py-20 lg:py-24`;
+const Container = tw.div`relative bg-gray-200 text-gray-700 -mb-8 -mx-8 px-8 py-10 lg:py-12`;
 const Content = tw.div`max-w-screen-xl mx-auto relative z-10`;
 const SixColumns = tw.div`flex flex-wrap text-center sm:text-left justify-center sm:justify-start md:justify-between -mt-12`;
 
@@ -54,7 +54,7 @@ export default () => {
   return (
     <Container>
       <Content>
-        <SixColumns>
+        {/* <SixColumns>
           <Column>
             <ColumnHeading>Main</ColumnHeading>
             <LinkList>
@@ -136,7 +136,8 @@ export default () => {
               </SubscribeForm>
             </SubscribeNewsletterContainer>
           </SubscribeNewsletterColumn>
-        </SixColumns>
+        </SixColumns> */}
+        {/* <Row></Row> */}
         <Divider />
         <ThreeColRow>
           <LogoContainer>
@@ -144,7 +145,7 @@ export default () => {
             {/* <LogoText>Treact Inc.</LogoText> */}
           </LogoContainer>
           <CopywrightNotice>
-            &copy; 2018 Treact Inc. All Rights Reserved.
+            &copy; 2018 LuxuriousDetailers Inc. All Rights Reserved.
           </CopywrightNotice>
           <SocialLinksContainer>
             <SocialLink href='https://facebook.com'>
